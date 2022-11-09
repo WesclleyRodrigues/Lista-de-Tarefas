@@ -106,5 +106,24 @@ const refreshTasksUsingLocalStorage = () => {
     }
 
     taskContent.addEventListener("click", () => handleClick(taskContent));
+
+    const deleteItem = document.createElement("i");
+    deleteItem.classList.add("far");
+    deleteItem.classList.add("fa-trash-alt");
+
+    deleteItem.addEventListener("click", () =>
+      handleDeleteClick(taskItemContainer, taskContent)
+    );
+
+    taskItemContainer.appendChild(taskContent);
+    taskItemContainer.appendChild(deleteItem);
+
+    tasksContainer.appendChild(taskItemContainer);
   }
 };
+
+refreshTasksUsingLocalStorage();
+
+addTaskButton.addEventListener("click", () => handleAddTask());
+
+inputElement.addEventListener("change", () => handleInputChange());
